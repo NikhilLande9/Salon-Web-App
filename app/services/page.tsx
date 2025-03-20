@@ -2,9 +2,10 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Scissors, Star, Clock, Check } from 'lucide-react';
+import { Star, Clock, Check } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import NavBar from '@/components/ui/NavBar';
 
 const services = [
   {
@@ -52,26 +53,7 @@ const services = [
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 to-teal-50 dark:from-gray-900 dark:to-gray-800">
-      <nav className="bg-white/80 backdrop-blur-sm border-b sticky top-0 z-50 dark:bg-gray-900/80">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <Scissors className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
-              Luxe Salon
-            </span>
-          </div>
-          <div className="space-x-4">
-            <Link href="/login">
-              <Button variant="ghost">Login</Button>
-            </Link>
-            <Link href="/register">
-              <Button className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
-                Register
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <NavBar />
 
       <main className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto text-center mb-16">

@@ -3,10 +3,11 @@
 import { useStore } from '@/lib/store';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, Clock, CreditCard, Scissors, Star } from 'lucide-react';
+import { Calendar, Clock, CreditCard, Star } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import NavBar from '@/components/ui/NavBar';
 
 const subscriptionPlans = [
   {
@@ -22,7 +23,7 @@ const subscriptionPlans = [
 ];
 
 export default function DashboardPage() {
-  const { user, logout } = useStore();
+  const { user } = useStore();
   const router = useRouter();
 
   useEffect(() => {
@@ -31,31 +32,11 @@ export default function DashboardPage() {
     }
   }, [user, router]);
 
-  const handleLogout = () => {
-    logout();
-    router.push('/');
-  };
-
   if (!user) return null;
 
   return (
     <div className="min-h-screen bg-background">
-      <nav className="border-b">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <Scissors className="h-6 w-6" />
-            <span className="text-xl font-bold">Luxe Salon</span>
-          </div>
-          <div className="flex items-center space-x-4">
-            {user.isGuest && (
-              <span className="text-sm text-muted-foreground">Guest Mode</span>
-            )}
-            <Button variant="ghost" onClick={handleLogout}>
-              Sign out
-            </Button>
-          </div>
-        </div>
-      </nav>
+      <NavBar />
 
       <main className="container mx-auto px-4 py-8">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">

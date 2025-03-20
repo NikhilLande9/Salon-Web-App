@@ -32,7 +32,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { useStore } from '@/lib/store';
-import { Scissors } from 'lucide-react';
+import NavBar from '@/components/ui/NavBar';
 
 const locales = {
   'en-US': require('date-fns/locale/en-US'),
@@ -126,14 +126,7 @@ export default function BookingPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <nav className="border-b">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <Scissors className="h-6 w-6" />
-            <span className="text-xl font-bold">Luxe Salon</span>
-          </div>
-        </div>
-      </nav>
+      <NavBar />
 
       <main className="container mx-auto px-4 py-8">
         <div className="grid gap-8 md:grid-cols-[2fr,1fr]">
@@ -146,7 +139,7 @@ export default function BookingPage() {
               <div className="h-[600px]">
                 <BigCalendar
                   localizer={localizer}
-                  events={events} // Display booked appointments on the calendar
+                  events={events}
                   startAccessor="start"
                   endAccessor="end"
                   selectable="ignoreEvents"
